@@ -14,6 +14,8 @@ void shadetri(Dynamic* dynamicp);
 
 void makeDL00(void)
 {
+  char conbuf[20];
+
   /* Specify the display list buffer  */
   glistp = gfx_glist;
 
@@ -43,7 +45,13 @@ void makeDL00(void)
   /* Activate the RSP task.  Switch display buffers at the end of the task. */
   nuGfxTaskStart(gfx_glist,
 		 (s32)(glistp - gfx_glist) * sizeof (Gfx),
-		 NU_GFX_UCODE_F3DEX , NU_SC_SWAPBUFFER);
+		 NU_GFX_UCODE_F3DEX , NU_SC_NOSWAPBUFFER);
+
+  nuDebConTextPos(0,21,10);
+  nuDebConCPuts(0, "prurhah");
+  nuDebConCPuts(0, conbuf);
+
+  nuDebConDisp(NU_SC_SWAPBUFFER);
 }
 
 /* The vertex coordinate  */

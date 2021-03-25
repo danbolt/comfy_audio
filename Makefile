@@ -16,10 +16,12 @@ CC  = gcc
 LD  = ld
 MAKEROM = mild
 
+NUAUDIOLIB = -lgn_audio
+
 LCDEFS =	-DNU_DEBUG -DF3DEX_GBI_2
 LCINCS =	-I. -I$(NUSYSINCDIR) -I$(ROOT)/usr/include/PR
 LCOPTS =	-G 0
-LDFLAGS = $(MKDEPOPT) -L$(LIB) -L$(NUSYSLIBDIR) -lnusys -lgultra -L$(GCCDIR)/mipse/lib -lkmc
+LDFLAGS = $(MKDEPOPT) -L$(LIB) -L$(NUSYSLIBDIR) $(NUAUDIOLIB)  -lnusys -lgultra -L$(GCCDIR)/mipse/lib -lkmc
 
 OPTIMIZER =	-g
 
